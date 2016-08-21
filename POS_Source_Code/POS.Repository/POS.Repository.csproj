@@ -57,6 +57,10 @@
       <Project>{ee935fbe-f10a-46ed-853d-48173beda900}</Project>
       <Name>POS.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\POS.Util\POS.Util.csproj">
+      <Project>{1fdc311e-b122-4c66-91e3-5653a6c26f75}</Project>
+      <Name>POS.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

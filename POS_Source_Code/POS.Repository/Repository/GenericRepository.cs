@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -87,6 +88,16 @@ namespace POS.Repository
         public virtual TEntity GetByID(object id)
         {
             return dbSet.Find(id);
+        }
+
+        /// <summary>
+        /// Get data by Param[]  -Vinod Kumar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public virtual TEntity GetByParam(object id,object StringName)
+        {
+            return dbSet.Find(id,StringName);
         }
 
         /// <summary>
@@ -184,6 +195,8 @@ namespace POS.Repository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+        ///
     }
 
 }

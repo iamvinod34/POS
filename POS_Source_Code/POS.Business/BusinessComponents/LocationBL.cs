@@ -7,6 +7,7 @@ using POS.Entity.Entities;
 using POS.Business.Interface;
 using POS.Repository.UnitOfWork;
 using POS.Repository;
+using POS.Util.Model;
 
 namespace POS.Business.BusinessComponents
 {
@@ -56,7 +57,7 @@ namespace POS.Business.BusinessComponents
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public tbl_Location GetByID(int id)
+        public tbl_Location GetByID(string id)
         {
             tbl_Location Location;
             try
@@ -74,7 +75,7 @@ namespace POS.Business.BusinessComponents
             finally
             {
                 Location = null;
-                Context = null;
+                // Context = null;
             }
 
         }
@@ -84,24 +85,24 @@ namespace POS.Business.BusinessComponents
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public bool Insert(tbl_Location location)
+        public string Insert(tbl_Location location)
         {
             try
             {
                 Context.Location.Insert(location);
                 Context.Location.Save();
-                return true;
+                return location.LocationDesc + " Inserted Successfully!!";
             }
             catch (Exception ex)
             {
 
                 //POS Log Exception to db table
 
-                return false;
+                return "Error in saving details, Please try again!!";
             }
             finally
             {
-                Context = null;
+                // Context = null;
             }
 
         }
@@ -111,24 +112,24 @@ namespace POS.Business.BusinessComponents
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public bool Update(tbl_Location location)
+        public string Update(tbl_Location location)
         {
             try
             {
                 Context.Location.Update(location);
                 Context.Location.Save();
-                return true;
+                return location.LocationDesc + " Updated Successfully!!";
             }
             catch (Exception ex)
             {
 
                 //POS Log Exception to db table
 
-                return false;
+                return "Error in saving details, Please try again!!";
             }
             finally
             {
-                Context = null;
+                // Context = null;
             }
 
         }
@@ -155,7 +156,7 @@ namespace POS.Business.BusinessComponents
             }
             finally
             {
-                Context = null;
+                // Context = null;
             }
 
         }
@@ -182,9 +183,30 @@ namespace POS.Business.BusinessComponents
             }
             finally
             {
-                Context = null;
+                // Context = null;
             }
 
+        }
+
+        /// <summary>
+        /// Insert or Update in tbl_Location table -Srikanth 
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public string InsertOrUpdate(tbl_Location location)
+        {
+            
+            tbl_Location CurrentLocation = this.GetByID(location.LocationID.Trim());
+            
+            string result = string.Empty;
+            if (CurrentLocation == null)
+            {
+                return result = this.Insert(location);
+            }
+            else
+            {
+                return result = this.Update(location);
+            }
         }
     }
 }

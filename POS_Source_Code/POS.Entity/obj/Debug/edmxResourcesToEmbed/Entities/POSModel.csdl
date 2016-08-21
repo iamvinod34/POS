@@ -1,5 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="POSEntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LongName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="POBox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DefaultCurrency" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbl_Company1" Relationship="Self.FK_tbl_Company" FromRole="tbl_Company" ToRole="tbl_Company1" />
+    <NavigationProperty Name="tbl_Company2" Relationship="Self.FK_tbl_Company" FromRole="tbl_Company1" ToRole="tbl_Company" />
+    <NavigationProperty Name="tbl_City" Relationship="POSEntityModel.FK_tbl_Company_tbl_City" FromRole="tbl_Company" ToRole="tbl_City" />
+  </EntityType>
+  <EntityType Name="tbl_Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="tbl_Location">
     <Key>
       <PropertyRef Name="LocationID" />
@@ -35,7 +65,66 @@
     <Property Name="PhyCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="tbl_Location1" Relationship="Self.FK_tbl_Location" FromRole="tbl_Location" ToRole="tbl_Location1" />
     <NavigationProperty Name="tbl_Location2" Relationship="Self.FK_tbl_Location" FromRole="tbl_Location1" ToRole="tbl_Location" />
+    <NavigationProperty Name="tbl_City" Relationship="POSEntityModel.FK_tbl_Location_tbl_City" FromRole="tbl_Location" ToRole="tbl_City" />
+    <NavigationProperty Name="tbl_Storage" Relationship="POSEntityModel.FK_tbl_Storage_tbl_Location" FromRole="tbl_Location" ToRole="tbl_Storage" />
   </EntityType>
+  <EntityType Name="tbl_Material">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+    </Key>
+    <Property Name="MaterialID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaterialDesc1" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialDesc2" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialDesc3" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="ProductURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BaseUOM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="VendorID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustInt1" Type="Int32" />
+    <Property Name="CustInt2" Type="Int32" />
+    <Property Name="CustInt3" Type="Int32" />
+    <Property Name="CustDate1" Type="DateTime" Precision="3" />
+    <Property Name="CustDate2" Type="DateTime" Precision="3" />
+    <Property Name="CustDate3" Type="DateTime" Precision="3" />
+    <Property Name="CustText1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustText2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustText3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddDate" Type="DateTime" Precision="0" />
+    <Property Name="UpdDate" Type="DateTime" Precision="0" />
+    <Property Name="Dataid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tbl_Material1" Relationship="Self.FK_tbl_Material" FromRole="tbl_Material" ToRole="tbl_Material1" />
+    <NavigationProperty Name="tbl_Material2" Relationship="Self.FK_tbl_Material" FromRole="tbl_Material1" ToRole="tbl_Material" />
+    <NavigationProperty Name="tbl_MaterialEAN" Relationship="Self.FK_tbl_MaterialEAN_tbl_Material" FromRole="tbl_Material" ToRole="tbl_MaterialEAN" />
+  </EntityType>
+  <EntityType Name="tbl_MaterialEAN">
+    <Key>
+      <PropertyRef Name="EAN13" />
+    </Key>
+    <Property Name="EAN13" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaterialID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="UOM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ConvertValue" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="BaseUOM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialMix" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Material" Relationship="Self.FK_tbl_MaterialEAN_tbl_Material" FromRole="tbl_MaterialEAN" ToRole="tbl_Material" />
+    <NavigationProperty Name="tbl_MaterialEAN1" Relationship="Self.FK_tbl_MaterialEAN" FromRole="tbl_MaterialEAN" ToRole="tbl_MaterialEAN1" />
+    <NavigationProperty Name="tbl_MaterialEAN2" Relationship="Self.FK_tbl_MaterialEAN" FromRole="tbl_MaterialEAN1" ToRole="tbl_MaterialEAN" />
+  </EntityType>
+  <Association Name="FK_tbl_Company">
+    <End Role="tbl_Company" Type="Self.tbl_Company" Multiplicity="1" />
+    <End Role="tbl_Company1" Type="Self.tbl_Company" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="tbl_Company1">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tbl_Location">
     <End Role="tbl_Location" Type="Self.tbl_Location" Multiplicity="1" />
     <End Role="tbl_Location1" Type="Self.tbl_Location" Multiplicity="0..1" />
@@ -48,11 +137,270 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tbl_Material">
+    <End Role="tbl_Material" Type="Self.tbl_Material" Multiplicity="1" />
+    <End Role="tbl_Material1" Type="Self.tbl_Material" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Material">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="tbl_Material1">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_MaterialEAN_tbl_Material">
+    <End Role="tbl_Material" Type="Self.tbl_Material" Multiplicity="0..1" />
+    <End Role="tbl_MaterialEAN" Type="Self.tbl_MaterialEAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Material">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="tbl_MaterialEAN">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_MaterialEAN">
+    <End Role="tbl_MaterialEAN" Type="Self.tbl_MaterialEAN" Multiplicity="1" />
+    <End Role="tbl_MaterialEAN1" Type="Self.tbl_MaterialEAN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_MaterialEAN">
+        <PropertyRef Name="EAN13" />
+      </Principal>
+      <Dependent Role="tbl_MaterialEAN1">
+        <PropertyRef Name="EAN13" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="POSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" />
+    <EntitySet Name="tbl_Country" EntityType="Self.tbl_Country" />
     <EntitySet Name="tbl_Location" EntityType="Self.tbl_Location" />
+    <EntitySet Name="tbl_Material" EntityType="Self.tbl_Material" />
+    <EntitySet Name="tbl_MaterialEAN" EntityType="Self.tbl_MaterialEAN" />
+    <AssociationSet Name="FK_tbl_Company" Association="Self.FK_tbl_Company">
+      <End Role="tbl_Company" EntitySet="tbl_Company" />
+      <End Role="tbl_Company1" EntitySet="tbl_Company" />
+    </AssociationSet>
     <AssociationSet Name="FK_tbl_Location" Association="Self.FK_tbl_Location">
       <End Role="tbl_Location" EntitySet="tbl_Location" />
       <End Role="tbl_Location1" EntitySet="tbl_Location" />
     </AssociationSet>
+    <AssociationSet Name="FK_tbl_Material" Association="Self.FK_tbl_Material">
+      <End Role="tbl_Material" EntitySet="tbl_Material" />
+      <End Role="tbl_Material1" EntitySet="tbl_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_MaterialEAN_tbl_Material" Association="Self.FK_tbl_MaterialEAN_tbl_Material">
+      <End Role="tbl_Material" EntitySet="tbl_Material" />
+      <End Role="tbl_MaterialEAN" EntitySet="tbl_MaterialEAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_MaterialEAN" Association="Self.FK_tbl_MaterialEAN">
+      <End Role="tbl_MaterialEAN" EntitySet="tbl_MaterialEAN" />
+      <End Role="tbl_MaterialEAN1" EntitySet="tbl_MaterialEAN" />
+    </AssociationSet>
+    <FunctionImport Name="Proc_GetMasterCategory" ReturnType="Collection(POSEntityModel.Proc_GetMasterCategory_Result)">
+      <Parameter Name="CategoryID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_GetMasterMaterial" ReturnType="Collection(POSEntityModel.Proc_GetMasterMaterial_Result)">
+      <Parameter Name="MaterialId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_LoadMasterLocation" ReturnType="Collection(POSEntityModel.Proc_LoadMasterLocation_Result)" />
+    <EntitySet Name="tbl_City" EntityType="POSEntityModel.tbl_City" />
+    <AssociationSet Name="FK_tbl_City" Association="POSEntityModel.FK_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_City1" EntitySet="tbl_City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Company_tbl_City" Association="POSEntityModel.FK_tbl_Company_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Company" EntitySet="tbl_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Location_tbl_City" Association="POSEntityModel.FK_tbl_Location_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Location" EntitySet="tbl_Location" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Storage" EntityType="POSEntityModel.tbl_Storage" />
+    <AssociationSet Name="FK_tbl_Storage_tbl_Location" Association="POSEntityModel.FK_tbl_Storage_tbl_Location">
+      <End Role="tbl_Location" EntitySet="tbl_Location" />
+      <End Role="tbl_Storage" EntitySet="tbl_Storage" />
+    </AssociationSet>
+    <FunctionImport Name="Proc_LoadGetStorage" ReturnType="Collection(POSEntityModel.Proc_LoadGetStorage_Result)" />
+    <FunctionImport Name="Proc_LoadGetStorage1" ReturnType="Collection(POSEntityModel.Proc_LoadGetStorage1_Result)" />
+    <FunctionImport Name="Proc_LoadGetStorage2" ReturnType="Collection(POSEntityModel.Proc_LoadGetStorage2_Result)" />
+    <FunctionImport Name="Proc_LoadGetLocationStorage" ReturnType="Collection(POSEntityModel.Proc_LoadGetLocationStorage_Result)" />
+    <FunctionImport Name="Proc_LoadStorageGetById" ReturnType="Collection(POSEntityModel.Proc_LoadStorageGetById_Result)">
+      <Parameter Name="LocationId" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="Proc_GetMasterCategory_Result">
+    <Property Type="String" Name="CategoryID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="CategoryDesc" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_GetMasterMaterial_Result">
+    <Property Type="String" Name="MaterialID" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="MaterialDesc1" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="MaterialDesc2" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="MaterialDesc3" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="ProductURL" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CategoryID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="SubCategoryID" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BaseUOM" Nullable="true" MaxLength="10" />
+    <Property Type="Decimal" Name="Cost" Nullable="true" Precision="18" Scale="3" />
+    <Property Type="String" Name="VendorID" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CustInt1" Nullable="true" />
+    <Property Type="Int32" Name="CustInt2" Nullable="true" />
+    <Property Type="Int32" Name="CustInt3" Nullable="true" />
+    <Property Type="DateTime" Name="CustDate1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CustDate2" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="CustDate3" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CustText1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CustText2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CustText3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserID" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="AddDate" Nullable="true" />
+    <Property Type="DateTime" Name="UpdDate" Nullable="true" />
+    <Property Type="Int32" Name="Dataid" Nullable="false" />
+    <Property Type="String" Name="Name1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SubCategoryDesc" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="CategoryDesc" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_LoadMasterLocation_Result">
+    <Property Type="String" Name="LocationID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LocationDesc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="POBox" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Contact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CostCenter" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="BusinessArea" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FieldArea" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="CashLoan" Nullable="true" Precision="18" Scale="5" />
+    <Property Type="Int32" Name="CustInt1" Nullable="true" />
+    <Property Type="Int32" Name="CustInt2" Nullable="true" />
+    <Property Type="Int32" Name="CustInt3" Nullable="true" />
+    <Property Type="String" Name="CustText1" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CustText2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CustText3" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TfrDisplay" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="POReceive" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TfrIn" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TfrOut" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RtnVendor" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PhyCount" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_City1" Relationship="POSEntityModel.FK_tbl_City" FromRole="tbl_City" ToRole="tbl_City1" />
+    <NavigationProperty Name="tbl_City2" Relationship="POSEntityModel.FK_tbl_City" FromRole="tbl_City1" ToRole="tbl_City" />
+    <NavigationProperty Name="tbl_Company" Relationship="POSEntityModel.FK_tbl_Company_tbl_City" FromRole="tbl_City" ToRole="tbl_Company" />
+    <NavigationProperty Name="tbl_Location" Relationship="POSEntityModel.FK_tbl_Location_tbl_City" FromRole="tbl_City" ToRole="tbl_Location" />
+  </EntityType>
+  <Association Name="FK_tbl_City">
+    <End Type="POSEntityModel.tbl_City" Role="tbl_City" Multiplicity="1" />
+    <End Type="POSEntityModel.tbl_City" Role="tbl_City1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_City1">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Company_tbl_City">
+    <End Type="POSEntityModel.tbl_City" Role="tbl_City" Multiplicity="0..1" />
+    <End Type="POSEntityModel.tbl_Company" Role="tbl_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Company">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Location_tbl_City">
+    <End Type="POSEntityModel.tbl_City" Role="tbl_City" Multiplicity="0..1" />
+    <End Type="POSEntityModel.tbl_Location" Role="tbl_Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Location">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Storage">
+    <Key>
+      <PropertyRef Name="StorageID" />
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="StorageID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="StorageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StorageType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LocationID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Location" Relationship="POSEntityModel.FK_tbl_Storage_tbl_Location" FromRole="tbl_Storage" ToRole="tbl_Location" />
+  </EntityType>
+  <Association Name="FK_tbl_Storage_tbl_Location">
+    <End Type="POSEntityModel.tbl_Location" Role="tbl_Location" Multiplicity="1" />
+    <End Type="POSEntityModel.tbl_Storage" Role="tbl_Storage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="tbl_Storage">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Proc_LoadGetStorage_Result">
+    <Property Type="String" Name="LocationID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StorageType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LocationID1" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LocationDesc" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_LoadGetStorage1_Result">
+    <Property Type="String" Name="LocationID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StorageType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LocationDesc" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_LoadGetStorage2_Result">
+    <Property Type="String" Name="LocationID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StorageType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LocationDesc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_LoadGetLocationStorage_Result">
+    <Property Type="String" Name="LocationID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StorageType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LocationDesc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_LoadStorageGetById_Result">
+    <Property Type="String" Name="LocationID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="LocationDesc" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StorageID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="StorageName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StorageType" Nullable="true" MaxLength="50" />
+  </ComplexType>
 </Schema>

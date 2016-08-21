@@ -4,9 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="055468d0ed6e4f8790b4861c5b62477c" Name="Diagram1">
-        <EntityTypeShape EntityType="POSEntityModel.tbl_Location" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="f808468da04149e5a87930ed85351bc4" Name="Diagram1">
+        <EntityTypeShape EntityType="POSEntityModel.tbl_Company" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSEntityModel.tbl_Country" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSEntityModel.tbl_Location" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSEntityModel.tbl_Material" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSEntityModel.tbl_MaterialEAN" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_Company" ManuallyRouted="false" />
         <AssociationConnector Association="POSEntityModel.FK_tbl_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_MaterialEAN_tbl_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_MaterialEAN" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="POSEntityModel.tbl_City" Width="1.5" PointX="7.75" PointY="4.25" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_City" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_Company_tbl_City" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_Location_tbl_City" />
+        <EntityTypeShape EntityType="POSEntityModel.tbl_Storage" Width="1.5" PointX="8" PointY="7.5" />
+        <AssociationConnector Association="POSEntityModel.FK_tbl_Storage_tbl_Location" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

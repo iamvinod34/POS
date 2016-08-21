@@ -1,5 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="POSEntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="POSEntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="70" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address3" Type="nvarchar" MaxLength="50" />
+    <Property Name="POBox" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="DefaultCurrency" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tbl_Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="tbl_Location">
     <Key>
       <PropertyRef Name="LocationID" />
@@ -34,6 +68,91 @@
     <Property Name="RtnVendor" Type="nvarchar" MaxLength="50" />
     <Property Name="PhyCount" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="tbl_Material">
+    <Key>
+      <PropertyRef Name="MaterialID" />
+    </Key>
+    <Property Name="MaterialID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MaterialDesc1" Type="nvarchar" MaxLength="60" />
+    <Property Name="MaterialDesc2" Type="nvarchar" MaxLength="60" />
+    <Property Name="MaterialDesc3" Type="nvarchar" MaxLength="60" />
+    <Property Name="ProductURL" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryID" Type="nvarchar" MaxLength="20" />
+    <Property Name="SubCategoryID" Type="nvarchar" MaxLength="20" />
+    <Property Name="BaseUOM" Type="nvarchar" MaxLength="10" />
+    <Property Name="Cost" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="VendorID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CustInt1" Type="int" />
+    <Property Name="CustInt2" Type="int" />
+    <Property Name="CustInt3" Type="int" />
+    <Property Name="CustDate1" Type="datetime" />
+    <Property Name="CustDate2" Type="datetime" />
+    <Property Name="CustDate3" Type="datetime" />
+    <Property Name="CustText1" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustText2" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustText3" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDate" Type="date" />
+    <Property Name="UpdDate" Type="date" />
+    <Property Name="Dataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_MaterialEAN">
+    <Key>
+      <PropertyRef Name="EAN13" />
+    </Key>
+    <Property Name="EAN13" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaterialID" Type="nvarchar" MaxLength="30" />
+    <Property Name="UOM" Type="nvarchar" MaxLength="10" />
+    <Property Name="ConvertValue" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="BaseUOM" Type="nvarchar" MaxLength="10" />
+    <Property Name="MaterialMix" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbl_Storage">
+    <Key>
+      <PropertyRef Name="StorageID" />
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="StorageID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="StorageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StorageType" Type="nvarchar" MaxLength="50" />
+    <Property Name="LocationID" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="1" />
+    <End Role="tbl_City1" Type="Self.tbl_City" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_City1">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Company">
+    <End Role="tbl_Company" Type="Self.tbl_Company" Multiplicity="1" />
+    <End Role="tbl_Company1" Type="Self.tbl_Company" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Company">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="tbl_Company1">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Company_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="0..1" />
+    <End Role="tbl_Company" Type="Self.tbl_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Company">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tbl_Location">
     <End Role="tbl_Location" Type="Self.tbl_Location" Multiplicity="1" />
     <End Role="tbl_Location1" Type="Self.tbl_Location" Multiplicity="0..1" />
@@ -46,11 +165,120 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tbl_Location_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="0..1" />
+    <End Role="tbl_Location" Type="Self.tbl_Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Location">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Material">
+    <End Role="tbl_Material" Type="Self.tbl_Material" Multiplicity="1" />
+    <End Role="tbl_Material1" Type="Self.tbl_Material" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Material">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="tbl_Material1">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_MaterialEAN">
+    <End Role="tbl_MaterialEAN" Type="Self.tbl_MaterialEAN" Multiplicity="1" />
+    <End Role="tbl_MaterialEAN1" Type="Self.tbl_MaterialEAN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_MaterialEAN">
+        <PropertyRef Name="EAN13" />
+      </Principal>
+      <Dependent Role="tbl_MaterialEAN1">
+        <PropertyRef Name="EAN13" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_MaterialEAN_tbl_Material">
+    <End Role="tbl_Material" Type="Self.tbl_Material" Multiplicity="0..1" />
+    <End Role="tbl_MaterialEAN" Type="Self.tbl_MaterialEAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Material">
+        <PropertyRef Name="MaterialID" />
+      </Principal>
+      <Dependent Role="tbl_MaterialEAN">
+        <PropertyRef Name="MaterialID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Storage_tbl_Location">
+    <End Role="tbl_Location" Type="Self.tbl_Location" Multiplicity="1" />
+    <End Role="tbl_Storage" Type="Self.tbl_Storage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="tbl_Storage">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Proc_GetMasterCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_GetMasterMaterial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MaterialId" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_LoadGetLocationStorage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_LoadMasterLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Proc_LoadStorageGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationId" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="POSEntityModelStoreContainer">
+    <EntitySet Name="tbl_City" EntityType="Self.tbl_City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Country" EntityType="Self.tbl_Country" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Location" EntityType="Self.tbl_Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Material" EntityType="Self.tbl_Material" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_MaterialEAN" EntityType="Self.tbl_MaterialEAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Storage" EntityType="Self.tbl_Storage" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_City" Association="Self.FK_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_City1" EntitySet="tbl_City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Company" Association="Self.FK_tbl_Company">
+      <End Role="tbl_Company" EntitySet="tbl_Company" />
+      <End Role="tbl_Company1" EntitySet="tbl_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Company_tbl_City" Association="Self.FK_tbl_Company_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Company" EntitySet="tbl_Company" />
+    </AssociationSet>
     <AssociationSet Name="FK_tbl_Location" Association="Self.FK_tbl_Location">
       <End Role="tbl_Location" EntitySet="tbl_Location" />
       <End Role="tbl_Location1" EntitySet="tbl_Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Location_tbl_City" Association="Self.FK_tbl_Location_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Location" EntitySet="tbl_Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Material" Association="Self.FK_tbl_Material">
+      <End Role="tbl_Material" EntitySet="tbl_Material" />
+      <End Role="tbl_Material1" EntitySet="tbl_Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_MaterialEAN" Association="Self.FK_tbl_MaterialEAN">
+      <End Role="tbl_MaterialEAN" EntitySet="tbl_MaterialEAN" />
+      <End Role="tbl_MaterialEAN1" EntitySet="tbl_MaterialEAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_MaterialEAN_tbl_Material" Association="Self.FK_tbl_MaterialEAN_tbl_Material">
+      <End Role="tbl_Material" EntitySet="tbl_Material" />
+      <End Role="tbl_MaterialEAN" EntitySet="tbl_MaterialEAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Storage_tbl_Location" Association="Self.FK_tbl_Storage_tbl_Location">
+      <End Role="tbl_Location" EntitySet="tbl_Location" />
+      <End Role="tbl_Storage" EntitySet="tbl_Storage" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

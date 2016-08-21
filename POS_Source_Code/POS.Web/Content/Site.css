@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -21,4 +21,105 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.mgn_0 {
+    margin: 0;
+}
+
+.pad_1per {
+    padding-left: 1%;
+}
+
+.mar_top_1per {
+    margin-top: 1%;
+}
+
+.stre_maxWth {
+    width: 100%;
+    max-width: 410px !important;
+}
+
+.pad_0 {
+    padding: 0;
+}
+
+.noPadBrd {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+}
+
+.font_med {
+    font-size: medium;
+}
+
+.bg_blue:hover {
+    color: #ffffff;
+    background-color: #7ac1e6;
+}
+.ht40{
+    height:40px;
+}
+
+.pointer{
+ cursor: pointer;
+}
+
+.pad_1perdiv > div {
+    padding: 0.5%;
+}
+.bold{
+    font-weight: bold;
+}
+.ovrflow{
+    max-height:623px;
+    overflow-y:auto
+}
+.bckcolor_green{
+    background-color: green;
+}
+.mrg_left_5per{
+    margin-left:5%
+}
+.pad_2per{
+    padding:2%
+}
+.btn_inpt_sumbit{
+    background-color: #7ac1e6; 
+    color: white;
+    float:none
+}
+.btn_inpt_cancel{
+    background-color: #e45b5b;
+     color: white;
+     float:none
+}
+input {
+        font-size: medium;
+        color: black;
+    }
+.err_mgs{
+        color: red;
+    font-size: 15px;
+    font-weight: 500;
+}
+.stng_text{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform:uppercase;
+}
+.stng_text:hover{
+    background-color: #7ac1e6;
+}
+.stng_Hdr{
+    color: white;
+    font-size: 20px;
+    background-color: #7193c7;
+    font-weight: bold;
+}
+.ovrflow_Stng{
+    max-height:837px;
+    overflow-y:auto
 }

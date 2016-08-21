@@ -12,3 +12,13 @@ D:\MyWork\pos\POS\POS.Entity\bin\Debug\EntityFramework.dll
 D:\MyWork\pos\POS\POS.Entity\bin\Debug\EntityFramework.SqlServer.dll
 D:\MyWork\pos\POS\POS.Entity\bin\Debug\EntityFramework.xml
 D:\MyWork\pos\POS\POS.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\POS.Entity.dll.config
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\POS.Entity.dll
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\POS.Entity.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\obj\Debug\POS.Entity.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\obj\Debug\POS.Entity.dll
+C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Entity\obj\Debug\POS.Entity.pdb

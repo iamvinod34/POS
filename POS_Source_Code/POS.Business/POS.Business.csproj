@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessComponents\LocationBL.cs" />
+    <Compile Include="BusinessComponents\StorageBL.cs" />
     <Compile Include="Interface\ILocation.cs" />
+    <Compile Include="Interface\IStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

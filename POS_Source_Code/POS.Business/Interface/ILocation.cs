@@ -16,11 +16,11 @@ namespace POS.Business.Interface
     {
         List<tbl_Location> GetAll();
 
-        tbl_Location GetByID(int id);
+        tbl_Location GetByID(string id);
 
-        bool Insert(tbl_Location location);
+        string Insert(tbl_Location location);
 
-        bool Update(tbl_Location location);
+        string Update(tbl_Location location);
 
         bool DeleteByID(int id);
 

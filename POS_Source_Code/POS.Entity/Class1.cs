@@ -8,5 +8,7 @@ namespace POS.Entity
 {
     public class Class1
     {
+
     }
 }
+

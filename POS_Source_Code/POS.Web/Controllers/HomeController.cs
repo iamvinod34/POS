@@ -10,6 +10,25 @@ namespace POS.Web.Controllers
     {
         public ActionResult Index()
         {
+            return View("Index", "_HomeLayout");
+        }
+        public ActionResult Company()
+        {
+            ViewBag.Message = "Company";
+
+            return View("Company", "_HomeLayout");
+        }
+
+        public ActionResult Solutions()
+        {
+            ViewBag.Message = "Solutions";
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            ViewBag.Message = "Services";
+
             return View();
         }
 
@@ -26,5 +45,7 @@ namespace POS.Web.Controllers
 
             return View();
         }
+
+     
     }
 }

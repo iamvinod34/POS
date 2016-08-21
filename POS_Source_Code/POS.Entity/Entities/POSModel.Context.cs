@@ -12,6 +12,8 @@ namespace POS.Entity.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class POSEntities : DbContext
     {
@@ -25,6 +27,64 @@ namespace POS.Entity.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tbl_Company> tbl_Company { get; set; }
+        public virtual DbSet<tbl_Country> tbl_Country { get; set; }
         public virtual DbSet<tbl_Location> tbl_Location { get; set; }
+        public virtual DbSet<tbl_Material> tbl_Material { get; set; }
+        public virtual DbSet<tbl_MaterialEAN> tbl_MaterialEAN { get; set; }
+        public virtual DbSet<tbl_City> tbl_City { get; set; }
+        public virtual DbSet<tbl_Storage> tbl_Storage { get; set; }
+    
+        public virtual ObjectResult<Proc_GetMasterCategory_Result> Proc_GetMasterCategory(string categoryID)
+        {
+            var categoryIDParameter = categoryID != null ?
+                new ObjectParameter("CategoryID", categoryID) :
+                new ObjectParameter("CategoryID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_GetMasterCategory_Result>("Proc_GetMasterCategory", categoryIDParameter);
+        }
+    
+        public virtual ObjectResult<Proc_GetMasterMaterial_Result> Proc_GetMasterMaterial(string materialId)
+        {
+            var materialIdParameter = materialId != null ?
+                new ObjectParameter("MaterialId", materialId) :
+                new ObjectParameter("MaterialId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_GetMasterMaterial_Result>("Proc_GetMasterMaterial", materialIdParameter);
+        }
+    
+        public virtual ObjectResult<Proc_LoadMasterLocation_Result> Proc_LoadMasterLocation()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LoadMasterLocation_Result>("Proc_LoadMasterLocation");
+        }
+    
+        public virtual ObjectResult<Proc_LoadGetStorage_Result> Proc_LoadGetStorage()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LoadGetStorage_Result>("Proc_LoadGetStorage");
+        }
+    
+        public virtual ObjectResult<Proc_LoadGetStorage1_Result> Proc_LoadGetStorage1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LoadGetStorage1_Result>("Proc_LoadGetStorage1");
+        }
+    
+        public virtual ObjectResult<Proc_LoadGetStorage2_Result> Proc_LoadGetStorage2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LoadGetStorage2_Result>("Proc_LoadGetStorage2");
+        }
+    
+        public virtual ObjectResult<Proc_LoadGetLocationStorage_Result> Proc_LoadGetLocationStorage()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LoadGetLocationStorage_Result>("Proc_LoadGetLocationStorage");
+        }
+    
+        public virtual ObjectResult<Proc_LoadStorageGetById_Result> Proc_LoadStorageGetById(string locationId)
+        {
+            var locationIdParameter = locationId != null ?
+                new ObjectParameter("LocationId", locationId) :
+                new ObjectParameter("LocationId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proc_LoadStorageGetById_Result>("Proc_LoadStorageGetById", locationIdParameter);
+        }
     }
 }

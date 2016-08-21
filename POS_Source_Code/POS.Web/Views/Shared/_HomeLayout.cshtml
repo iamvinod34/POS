@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+   
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+
+
+    @Scripts.Render("~/Scripts/js")
+    @Styles.Render("~/Content/themes/base/css")
+
+</head>
+<body>
+    <header>
+        <div id="stuck_container" class="stuck_container">
+            <div class="container">
+                <nav class="navbar navbar-default navbar-static-top ">
+                    <ul class="navbar-nav sf-menu" data-type="navbar">
+                        <li class="active">
+                            <a href="@Url.Action("Index","Home")">Main Page</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="@Url.Action("Company","Home")">Company</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Welcome Message</a>
+                                </li>
+                                <li>
+                                    <a href="#">Company Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#">Our History</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Welcome Message</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Company Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Our History</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Testimonials</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Testimonials</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Solutions","Home")">Solutions</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Services", "Home")">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="@Url.Action("Cantacts", "Home")">Contacts</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <section class="well well1 center991">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <h1 class="navbar-brand">
+                        <a data-type='rd-navbar-brand' href="./">
+                            EasyPos
+                        </a>
+                        <small class="lead">
+                            best business<br />
+                            solutions
+                        </small>
+                    </h1>
+                </div>
+
+                @*<div class="search-form">
+                        <form id="search" action="search.php" method="GET" accept-charset="utf-8">
+                            <label class="search-form_label" for="in">
+                                <input id="in" class="search-form_input" type="text" name="s"
+                                       placeholder="" />
+                                <span class="search-form_liveout"></span>
+                            </label>
+                            <button type="submit" class="search-form_submit fa-search"></button>
+                        </form>
+                    </div>*@
+
+                <div class="social">
+                    <p class="lead">
+                        get in touch
+                    </p>
+
+                    <ul class="inline-list">
+                        <li>
+                            <a href="#" class="fa fa-facebook">facebook</a>
+                        </li>
+                        <li>
+                            <a href="#" class="fa fa-twitter">twitter</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </header>
+
+    <div class="container col-lg-12 col-sm-12 col-xs-12 col-md-12">
+        @RenderBody()
+        <hr />
+        <footer>
+
+            <section>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <h3>
+                                About us
+                            </h3>
+                            <ul class="marked-list">
+                                <li><a href="#">Market Research</a></li>
+                                <li><a href="#">Online Banking</a></li>
+                                <li><a href="#">Financial Services</a></li>
+                                <li><a href="#">Client Network Solutions</a></li>
+                                <li><a href="#">Testimonials</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <h3>
+                                Popular
+                            </h3>
+                            <ul class="marked-list">
+                                <li><a href="#">Solutions & Training</a></li>
+                                <li><a href="#">Affiliate Program</a></li>
+                                <li><a href="#">Production</a></li>
+                                <li><a href="#">Risk Management</a></li>
+                                <li><a href="#">Consultation</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-6">
+                            <h3>
+                                Links
+                            </h3>
+                            <ul class="marked-list">
+                                <li><a href="#">Strategies</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Recent Issues</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Solutions</a></li>
+                                <li><a href="#">Business Help</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-6 center500">
+                            <p class="rights">
+                                corsas &#169; @DateTime.Now.Year|
+                                <a href="index-5.html">Privacy Policy</a>
+                                More <a rel="nofollow" href="http://www.templatemonster.com/category/consulting-website-templates/" target="_blank">
+                                    Consulting Website<br />
+                                    Templates at TemplateMonster.com
+                                </a>
+                            </p>
+                            <address>
+                                Inc. 8901 Marmora Road, Glasgow, D04 89GR.
+                            </address>
+                            <dl class="phone">
+                                <dt>Freephone:</dt>
+                                <dd><a href="callto:#">+1 800 559 6580</a></dd>
+                            </dl>
+                            <dl class="mail">
+                                <dt>E-mail:</dt>
+                                <dd><a href="mailto:#">mail@demolink.org</a></dd>
+                            </dl>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/Scripts/bootstrap.min.js")
+    @Scripts.Render("~/Scripts/tm-scripts.js")
+    @Scripts.Render("~/Scripts/js")
+</body>
+
+</html>

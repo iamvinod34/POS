@@ -14,6 +14,12 @@ namespace POS.Entity.Entities
     
     public partial class tbl_Location
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbl_Location()
+        {
+            this.tbl_Storage = new HashSet<tbl_Storage>();
+        }
+    
         public string LocationID { get; set; }
         public string LocationDesc { get; set; }
         public string Address1 { get; set; }
@@ -46,5 +52,8 @@ namespace POS.Entity.Entities
     
         public virtual tbl_Location tbl_Location1 { get; set; }
         public virtual tbl_Location tbl_Location2 { get; set; }
+        public virtual tbl_City tbl_City { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_Storage> tbl_Storage { get; set; }
     }
 }
