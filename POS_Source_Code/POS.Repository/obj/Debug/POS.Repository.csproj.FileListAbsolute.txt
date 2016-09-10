@@ -25,3 +25,12 @@ C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Repository\obj\Debug
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Repository\obj\Debug\POS.Repository.pdb
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Util.dll
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Util.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Repository.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Repository.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Entity.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Util.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Entity.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\bin\Debug\POS.Util.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\obj\Debug\POS.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\obj\Debug\POS.Repository.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Repository\obj\Debug\POS.Repository.pdb

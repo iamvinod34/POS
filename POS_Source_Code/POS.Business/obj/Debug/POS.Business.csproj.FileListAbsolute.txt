@@ -33,3 +33,16 @@ C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Business\bin\Debug\E
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Business\obj\Debug\POS.Business.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Business\obj\Debug\POS.Business.dll
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Business\obj\Debug\POS.Business.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Business.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Business.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Entity.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Repository.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Util.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Entity.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Repository.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\POS.Util.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\obj\Debug\POS.Business.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\obj\Debug\POS.Business.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Business\obj\Debug\POS.Business.pdb

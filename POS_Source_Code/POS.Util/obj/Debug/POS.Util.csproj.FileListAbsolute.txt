@@ -10,3 +10,11 @@ C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Util\obj\Debug\POS.U
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Util\bin\Debug\EntityFramework.dll
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Util\bin\Debug\POS.Entity.dll
 C:\Users\Admin\Documents\GitHub\POS\POS\POS_Source_Code\POS.Util\bin\Debug\POS.Entity.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\bin\Debug\POS.Util.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\bin\Debug\POS.Util.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\bin\Debug\POS.Entity.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\bin\Debug\POS.Entity.pdb
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\obj\Debug\POS.Util.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\obj\Debug\POS.Util.dll
+C:\Users\Admin\Documents\GitHub\POS\POS_Source_Code\POS.Util\obj\Debug\POS.Util.pdb
